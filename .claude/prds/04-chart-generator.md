@@ -2,7 +2,7 @@
 name: chart-generator
 id: PRD-04
 description: PNG chart generation for min/max visualization and regression plots
-status: backlog
+status: complete
 phase: mvp
 priority: P1
 complexity: medium
@@ -33,7 +33,7 @@ blocks: [PRD-05]
 references: [PRD-03]
 
 created: 2026-01-20T19:06:34Z
-updated: 2026-01-20T19:06:34Z
+updated: 2026-01-20T19:50:27Z
 ---
 
 # PRD-04: Chart Generator
