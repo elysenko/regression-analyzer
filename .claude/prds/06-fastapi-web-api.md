@@ -1,9 +1,9 @@
 ---
 name: 06-fastapi-web-api
 description: Wrap regression-analyzer CLI in FastAPI REST endpoints
-status: backlog
+status: complete
 created: 2026-01-20T20:32:34Z
-updated: 2026-01-20T20:32:34Z
+updated: 2026-01-20T20:44:33Z
 ---
 
 # PRD: FastAPI Web API
