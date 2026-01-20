@@ -2,7 +2,7 @@
 name: cli-interface
 id: PRD-05
 description: Command-line interface for running analysis pipeline
-status: backlog
+status: complete
 phase: mvp
 priority: P1
 complexity: medium
@@ -34,7 +34,7 @@ blocks: []
 references: [PRD-01, PRD-02, PRD-03, PRD-04]
 
 created: 2026-01-20T19:06:34Z
-updated: 2026-01-20T19:06:34Z
+updated: 2026-01-20T20:17:05Z
 ---
 
 # PRD-05: CLI Interface
