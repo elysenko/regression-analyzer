@@ -1,0 +1,81 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "regression-analyzer"
+version = "0.1.0"
+description = "Automated tabular data analysis with LLM-powered insights, regression analysis, and chart generation"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "Your Name", email = "you@example.com" }
+]
+keywords = ["data-analysis", "regression", "llm", "machine-learning", "charts"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "polars>=0.20.0",
+    "pandas>=2.0.0",
+    "openpyxl>=3.1.0",
+    "chardet>=5.0.0",
+    "scikit-learn>=1.4.0",
+    "seaborn>=0.13.0",
+    "matplotlib>=3.8.0",
+    "pydantic>=2.0.0",
+    "click>=8.0.0",
+    "rich>=13.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.0.0"]
+anthropic = ["anthropic>=0.18.0", "instructor>=1.0.0"]
+google = ["google-generativeai>=0.4.0"]
+groq = ["groq>=0.4.0"]
+all-providers = [
+    "openai>=1.0.0",
+    "anthropic>=0.18.0",
+    "instructor>=1.0.0",
+    "google-generativeai>=0.4.0",
+    "groq>=0.4.0",
+]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+regression-analyzer = "regression_analyzer.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/elysenko/regression-analyzer"
+Repository = "https://github.com/elysenko/regression-analyzer"
+Issues = "https://github.com/elysenko/regression-analyzer/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/regression_analyzer"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
