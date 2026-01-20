@@ -292,5 +292,55 @@ def providers():
         console.print("Set ANTHROPIC_API_KEY, OPENAI_API_KEY, or other provider keys.")
 
 
+@main.command()
+@click.option(
+    '--host', '-h',
+    default='0.0.0.0',
+    help='Host to bind (default: 0.0.0.0)'
+)
+@click.option(
+    '--port', '-p',
+    default=8000,
+    type=int,
+    help='Port to bind (default: 8000)'
+)
+@click.option(
+    '--reload',
+    is_flag=True,
+    help='Enable auto-reload for development'
+)
+def serve(host: str, port: int, reload: bool):
+    """Start the REST API server.
+
+    Examples:
+
+        regression-analyzer serve
+
+        regression-analyzer serve --port 8080
+
+        regression-analyzer serve --reload  # Development mode
+    """
+    try:
+        import uvicorn
+    except ImportError:
+        console.print("[red]Error: uvicorn not installed.[/red]")
+        console.print("Install API dependencies with: pip install regression-analyzer[api]")
+        raise click.Abort()
+
+    console.print(Panel.fit(
+        f"[bold blue]Regression Analyzer API[/bold blue]\n"
+        f"Starting server at http://{host}:{port}\n"
+        f"Documentation: http://{host}:{port}/docs",
+        border_style="blue"
+    ))
+
+    uvicorn.run(
+        "regression_analyzer.api:app",
+        host=host,
+        port=port,
+        reload=reload,
+    )
+
+
 if __name__ == "__main__":
     main()
