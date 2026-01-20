@@ -13,6 +13,7 @@ from .prompts import (
     HEADER_ANALYSIS_PROMPT,
     format_table_as_markdown,
 )
+from .llm_analyzer import LLMAnalyzer
 
 __all__ = [
     "BusinessContext",
@@ -24,4 +25,5 @@ __all__ = [
     "COLUMN_RELEVANCE_PROMPT",
     "HEADER_ANALYSIS_PROMPT",
     "format_table_as_markdown",
+    "LLMAnalyzer",
 ]
